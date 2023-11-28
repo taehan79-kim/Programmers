@@ -1,11 +1,11 @@
-def dfs(sheep, wolf, edges):
+def dfs(sheep, wolf, edges): # DFS 완전 노드 탐색
     if sheep > wolf:
         a.append(sheep)
     else:
         return 
         
-    for p, c in edges:
-        if visited[p] and not visited[c]:
+    for p, c in edges: # 현재까지 진행 노드에서 완전 탐색
+        if visited[p] and not visited[c]: 
             visited[c] = 1
             if _info[c] == 0:
                 dfs(sheep+1, wolf, edges)
