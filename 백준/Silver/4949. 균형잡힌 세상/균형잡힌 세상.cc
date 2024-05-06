@@ -8,11 +8,12 @@ int main(void) {
     while (true) {
         string str;
         stack<char> s;
-        bool bal = true;
         getline(cin, str);
         if (str == ".") break;
         for (auto c:str) {
             if (c == '.') {
+                if(!s.empty())cout << "no" << "\n";
+                else cout << "yes" << "\n";
                 break;
             }
             else if (c == '[') {
@@ -23,7 +24,7 @@ int main(void) {
             }
             else if (c == ']') {
                 if (s.empty() || s.top() != '[') {
-                    bal = false;
+                    cout << "no" << "\n";
                     break;
                 }
                 else {
@@ -32,20 +33,13 @@ int main(void) {
             }
             else if (c == ')') {
                 if (s.empty() || s.top() != '(') {
-                    bal = false;
+                    cout << "no" << "\n";
                     break;
                 }
                 else {
                     s.pop();
                 }
             }
-        }
-        if (!s.empty())bal = false;
-        if (bal) {
-            cout << "yes" << "\n";
-        }
-        else {
-            cout << "no" << "\n";
         }
     }
 }
